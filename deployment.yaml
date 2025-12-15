@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toyshop-deployment
+  labels:
+    app: toyshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: toyshop
+  template:
+    metadata:
+      labels:
+        app: toyshop
+    spec:
+      containers:
+        - name: toyshop
+          image: nginx:latest
+          ports:
+            - containerPort: 80
